@@ -1,4 +1,13 @@
 
+
+/*
+1.  Дописать работу со скобками и числами с точкой процентами
+2. Стилизовать и сделать тему
+3. дописать если без нажатия ровно нажимается операция
+4. дописать если оператор ровно нажимается после ввода 1 числа
+
+*/
+
 class Calculator {
     _self = this;
     constructor() {
@@ -39,19 +48,21 @@ class Calculator {
     operataionButtons(elem, elemValue) {
         if (elemValue === '=') {
             return this._self.resultOperation(this.result.innerText)
-        } else if
-            (elemValue === '+' || '•' || '/' || '-') {
-            this._self.operator = elemValue;
-            this._self.val = this.result.innerText;
-            this.result.innerText = '';
+        } else if (elemValue === '+' || elemValue === '•' || elemValue === '/' || elemValue ===  '-') {
+            console.log(elemValue);
+                this._self.operator = elemValue;
+                this._self.val = this.result.innerText;
+                this.result.innerText = '';
         } else {
-            return this.result.innerText = '';
+            alert('This functionality has not yet been implemented.')
+            this._self.val = null;
+            this._self.operator = null;
+            this.result.innerText = '';
         }
     }
     resultOperation(resultVal) {
         return this.result.innerText = eval(`${this._self.val} ${this._self.operator} ${resultVal} `);
     }
-
 }
 
 let n = new Calculator()
